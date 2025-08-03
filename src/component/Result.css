@@ -1,9 +1,10 @@
 .results_body{
     margin-bottom: 10px;
-    width: 70%;
+    width: 90%;
     flex:0;
     background-color: white;
     border-radius: 5mm;
+    max-width: 500px;
 }
 .result_contents {
   text-align: left;              /* ✅ Left-align the text */
