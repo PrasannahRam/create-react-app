@@ -6,11 +6,13 @@ import Results_page from './component/Results_page';
 function App() {
   return (
     <div className="App">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       <Header></Header>
-      <div class = "App-body">
+      <div className = "App-body">
         <h2 style={{color : '#383636',padding:'10px'}}>FIND YOUR EXAM RESULTS HERE </h2>
 
-        <button class = "App-notice">
+        <button className = "App-notice">
         <p>විභාග ප්‍රතිඵල ශ්‍රී ලංකා රජය සතු දේපලක් වන අතර, නිසි අවසරයකින් තොරව අයදුම්කරුගේ නොවන ප්‍රතිඵල උපුටා ගැනීම, ළඟ තබා ගැනීම, වෙබ් අඩවියක හෝ සමාජ මාධ්‍ය ජාලවල පල කිරීම හෝ වෙනත් ආකාරයකින් ප්‍රසිද්ධ කිරීම සපුරා තහනම් වන අතර, දඬුවම් ලැබිය හැකි වරදකි.
 
 Examination results are the property of the Government of Sri Lanka, and copying, keeping, posting on a website or social media networks or otherwise publicizing the results which are not belong to the candidate without proper permission is strictly prohibited and is a punishable offence.

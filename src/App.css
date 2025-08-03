@@ -38,8 +38,9 @@
 }
 
 .App-body {
+  flex:1;
   background-color:#908E8E;
-  margin: 10px;
+  margin: 1%;
   border-radius: 10px;
 }
 .App-notice{

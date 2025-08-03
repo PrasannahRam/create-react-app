@@ -37,21 +37,25 @@ function Results_page() {
     <div>
       <div>
         
-        <select defaultValue={'ol'} value={exam} onChange={(e) => setexam(e.target.value)} style={{width:200,padding:'10px',margin:'10px'}}>
+        <select defaultValue={'ol'} value={exam} onChange={(e) => setexam(e.target.value)} style={{width:200,padding:'10px',margin:'10px',borderRadius:'5px'}}>
             <option value= "O/L">O/L</option>
             <option value= "A/L">A/L</option>
         </select>
-        <select defaultValue={2023} value={year} onChange={(e) => setyear(e.target.value)} style={{width:300,padding:'10px',margin:'10px'}}>
+        <select defaultValue={2023} value={year} onChange={(e) => setyear(e.target.value)} style={{width:300,padding:'10px',margin:'10px',borderRadius:'5px'}}>
             <option value= '2023'>2023</option>
             <option value= "2024">2024</option>
         </select>
-        <select value={idtype} onChange={(e) => setidtype(e.target.value)} style={{width:100,padding:'10px',margin:'10px',marginRight:0}}>
+        <p style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <select value={idtype} onChange={(e) => setidtype(e.target.value)} style={{width:100,padding:'10px',margin:'10px',marginRight:-1,borderRadius:'5px'}}>
             <option value= 'indexno'>Index</option>
             <option value= "nic">NIC</option>
         </select>
+        
         {idtype === 'indexno'? 
-        <input type='text' placeholder='Index No'  value={indexno} onChange={(e)=>{setindexno(e.target.value)}} style={{width:500,padding:'10px',margin:'10px',marginLeft:0}}/> : 
-        <input type='text' placeholder='NIC' value={nic} onChange={(e)=>{setnic(e.target.value)}} style={{width:500,padding:'10px',margin:'10px',marginLeft:0}}/>  }
+        <input type='text' placeholder='Index No'  value={indexno} onChange={(e)=>{setindexno(e.target.value)}} style={{flex:1,width:'80%',borderRadius:'5px',maxWidth:'200px',padding:'10px',margin:'10px',marginLeft:0}}/> : 
+        <input type='text' placeholder='NIC' value={nic} onChange={(e)=>{setnic(e.target.value)}} style={{flex:1,width:'80%',padding:'5px',borderRadius:'5px',margin:'10px',maxWidth:'200px',marginLeft:0}}/>  }
+        
+        </p>
         
     </div>
     <div>
