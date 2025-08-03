@@ -25,9 +25,13 @@ function Results_page() {
       // } else {
       //   setnic(null)
       // }
+
+
+      // for testing
+      const result = {science:"A",maths:"A",english:"A"}
+      // for testing
       
-      
-      const info = {indexno:indexno ,nic:nic ,exam:exam ,year:year}
+      const info = {indexno:indexno ,nic:nic ,exam:exam ,year:year,result:result}
       setresult_info(info)
       setshow(true)
       console.log(result_info);
@@ -59,12 +63,15 @@ function Results_page() {
         
     </div>
     <div>
-          <button onClick={show_results}>Submit</button>
+          <button onClick={()=>show_results()}>Submit</button>
           <button onClick={clear}>Reset</button>
     </div>
     
     {show && 
-    <Results result={result_info}></Results>
+    <div style={{justifyContent:'center'}}>
+      <Results result={result_info}></Results>
+      </div>
+    
     }
 
 

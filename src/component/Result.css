@@ -1,0 +1,6 @@
+.results_body{
+    justify-content: center;
+    width: 50%;
+    flex:1;
+    background-color: wheat;
+}
