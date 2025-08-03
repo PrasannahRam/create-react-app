@@ -39,9 +39,10 @@
 
 .App-body {
   flex:1;
-  background-color:#908E8E;
+  background-color:#C9C9C9;
   margin: 1%;
   border-radius: 10px;
+  padding: 10px;
 }
 .App-notice{
   background-color: yellow;
@@ -50,3 +51,6 @@
   border-color: #C22126;
   border-style:ridge;
 }
+/* .result_page{
+  margin: 10;
+} */

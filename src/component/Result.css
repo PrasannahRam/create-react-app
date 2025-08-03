@@ -1,6 +1,109 @@
 .results_body{
-    justify-content: center;
-    width: 50%;
-    flex:1;
-    background-color: wheat;
+    margin-bottom: 10px;
+    width: 70%;
+    flex:0;
+    background-color: white;
+    border-radius: 5mm;
+}
+.result_contents {
+  text-align: left;              /* ✅ Left-align the text */
+  padding: 8px 12px;             /* Inner spacing */
+  margin: 6px 0;                 /* Vertical gap between lines */
+  font-size: 16px;               /* Clean readable text */
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;     /* Light gray background */
+  border-left: 4px solid #3498db; /* Accent bar on the left */
+  border-radius: 4px;
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;         /* Prevent long text from overflowing */
+}
+.result-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.subject-name {
+  font-weight: 500;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.subject-mark {
+  color: #34495e;
+  font-weight: 400;
+}
+
+
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .result-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;  /* ✅ Center horizontally */
+  gap: 10px;                /* Space between buttons */
+  margin-top: 30px;
+  flex-wrap: wrap;          /* Wrap on small screens */
+}
+
+.btn {
+  padding: 10px 24px;
+  font-size: 16px;
+  width: 20%;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Submit button style */
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Reset button style */
+.reset-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive for small devices */
+@media (max-width: 500px) {
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
 }

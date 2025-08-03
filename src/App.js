@@ -19,11 +19,12 @@ Examination results are the property of the Government of Sri Lanka, and copying
 
 பரீட்சைப் பெறுபேறுகள் இலங்கை அரசாங்கத்தின் சொத்தாகும். உரிய அனுமதியின்றி பரீட்சார்த்திகளுக்கு உரியதல்லாத பெறுபேறுகளை பிரதிசெய்தல், தம்வசம் வைத்திருத்தல், இணையத்தளமொன்றிற்குள்ளோ அல்லது சமூக வலைத்தளங்களிலோ பதிவேற்றம் செய்தல் அல்லது வேறு வடிவங்களில் பிரசுரித்தல் என்பன முற்றாகத் தடைசெய்யப்பட்டுள்ளதுடன் தண்டனைக்குரிய குற்றமுமாகும்.</p>
         </button>
-        <Results_page></Results_page>
+        <div className='result_page'>
+          <Results_page></Results_page>
+        </div>
+        
       </div>
       
-      <Home></Home>
-      hi testing
     </div>
   );
 }
