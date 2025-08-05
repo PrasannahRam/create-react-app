@@ -1,7 +1,7 @@
 import React from 'react'
 import './Result.css'
 function Results({ result }) {
-    const titles = ['Nic', 'Indexno', 'Exam', 'Year']
+    const titles = ['Nic', 'Indexno', 'Exam', 'Year','Name']
     const subjects = ['Science', 'Maths', 'English']
 
     return (

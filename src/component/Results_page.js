@@ -47,7 +47,7 @@ function Results_page() {
     console.log(result['nic']);
     
     // {id: 1, nic: '200500201250', name: 'Prasannah', Results: {…}, indexno: '9204776'}
-    info = { Indexno: result['indexno'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
+    info = { Indexno: result['indexno'],Name: result['name'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
     setresult_info(info)
     if (result != undefined) {
       setshow(true)
