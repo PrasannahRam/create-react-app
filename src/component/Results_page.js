@@ -7,43 +7,72 @@ function Results_page() {
   const [year, setyear] = useState()
   const [exam, setexam] = useState()
   const [indexno, setindexno] = useState('')
-  const [nic, setnic] = useState()
+  const [nic, setnic] = useState('')
   const [idtype, setidtype] = useState('indexno')
   const [show, setshow] = useState(false)
 
   const [result_info, setresult_info] = useState('')
 
   const clear = () => {
-    setexam('')
+    setexam()
     setindexno('')
     setnic('')
-    setyear('')
     setshow(false)
   }
 
-  const show_results = () => {
-    // if (idtype === 'nic') {
-    //   setindexno(null)
-    // } else {
-    //   setnic(null)
-    // }
-
-
-    // for testing
-    const result = { Science: "A", Maths: "A", English: "A" }
-    // for testing
-
-    const info = { Indexno: indexno, Nic: nic, Exam: exam, Year: year, result: result }
+  const show_results = async () => {
+    var id 
+    var info
+    if (idtype === 'nic') {
+      id = nic
+    } else {
+      id = indexno
+    }
+    var result = {}
+    try {
+      console.log('running');
+      
+      const res = await fetch("https://backend-ceu-results-production.up.railway.app/api/result",{
+        method:'POST',
+        body:JSON.stringify({id:id,idtype:idtype,exam:exam,year:year}),
+        headers: {
+        "Content-Type": "application/json"
+      }
+      
+      
+      }
+    )
+    console.log('succese');
+    result = await res.json()
+    console.log(result['nic']);
+    
+    // {id: 1, nic: '200500201250', name: 'Prasannah', Results: {…}, indexno: '9204776'}
+    info = { Indexno: result['indexno'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
     setresult_info(info)
-    setshow(true)
-    console.log(result_info);
+    if (result != undefined) {
+      setshow(true)
+    }
+    
+    } catch (error) {
+      console.log(error);
+      
+    }
+    
+    // const info = { Indexno: indexno, Nic: nic, Exam: exam, Year: year, result: result }
+    // for testing
+    
+    // for testing
+
+    
+    
+    
   }
 
   return (
     <div>
       <div>
 
-        <select  value={exam} onChange={(e) => setexam(e.target.value)} style={{ width: '20%', padding: '10px', margin: '10px', borderRadius: '5px' }}>
+        <select  value={exam} onChange={(e) => setexam(e.target.value)} style={{ width: '40%',maxWidth:'250px', padding: '10px', margin: '10px', borderRadius: '5px' }}>
           <option defaultChecked>Select Exam</option>
           {Object.keys(data).map((e)=>{
             return(
@@ -52,7 +81,7 @@ function Results_page() {
             
           })}
         </select>
-        <select value={year} onChange={(e) => setyear(e.target.value)} style={{ width: '20% ', padding: '10px', margin: '10px', borderRadius: '5px' }}>
+        <select value={year} onChange={(e) => setyear(e.target.value)} style={{ width: '40% ',maxWidth:'250px', padding: '10px', margin: '10px', borderRadius: '5px' }}>
           <option defaultChecked>Select Year</option>
           {exam!=null && data[exam].map((y)=>{
             return(

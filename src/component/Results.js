@@ -6,8 +6,7 @@ function Results({ result }) {
 
     return (
         <div className='results_body'>
-            {console.log(result)
-            }
+            
 
             {titles.map((title) => {
                 return (
