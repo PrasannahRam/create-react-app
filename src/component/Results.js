@@ -1,9 +1,13 @@
 import React from 'react'
 import './Result.css'
+import subjects_data from './subjects.json'
 function Results({ result }) {
     const titles = ['Nic', 'Indexno', 'Exam', 'Year','Name']
-    const subjects = ['Science', 'Maths', 'English']
+    const subjects = subjects_data[result.Exam]
+    // const subjects = ['Mathematics', 'Science', 'English Language', 'Tamil Language', 'Religion', 'History', 'Bascket 1', 'Bascket 2', 'Bascket 3']
 
+    console.log(subjects);
+    
     return (
         <div className='results_body'>
             

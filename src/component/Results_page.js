@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Results from './Results'
 import './Result.css'
 import data from './data.json' 
+import subjects_data from './subjects.json'
 
 function Results_page() {
   const [year, setyear] = useState()
@@ -12,6 +13,11 @@ function Results_page() {
   const [show, setshow] = useState(false)
 
   const [result_info, setresult_info] = useState('')
+
+
+  // const subjects = subjects_data[exam]
+  // console.log(subjects);
+    
 
   const clear = () => {
     setexam()
@@ -49,7 +55,11 @@ function Results_page() {
     // {id: 1, nic: '200500201250', name: 'Prasannah', Results: {…}, indexno: '9204776'}
     info = { Indexno: result['indexno'],Name: result['name'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
     setresult_info(info)
-    if (result != undefined) {
+    console.log(info);
+    console.log(info.Exam);
+    
+    
+    if (result !== undefined) {
       setshow(true)
     }
     
