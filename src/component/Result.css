@@ -108,3 +108,34 @@
     align-items: center;
   }
 }
+.invalid_index_pop{
+    color: white;
+    width: 20%;
+    font-size: 0.9rem;
+    animation: fadeIn 0.2s ease-in-out;
+    position: absolute;
+    top:0;
+    background-color: red;
+    padding: 1%;
+    border-radius: 5%;
+    left: 40%;
+    /* opacity: 80%; */
+    animation: pop 2s forwards
+}
+@keyframes pop {
+    0%{
+        top: -40px;
+        opacity: 0;
+    }
+    10%{
+        top: 0;
+        opacity: 90%;
+    }
+    80%{
+        top: 0;
+        opacity: 90%;
+    }
+    100%{
+        opacity: 0;
+    }
+}

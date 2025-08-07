@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Results from './Results'
 import './Result.css'
 import data from './data.json' 
-import subjects_data from './subjects.json'
 
 function Results_page() {
   const [year, setyear] = useState()
@@ -11,7 +10,7 @@ function Results_page() {
   const [nic, setnic] = useState('')
   const [idtype, setidtype] = useState('indexno')
   const [show, setshow] = useState(false)
-
+  const [valid_index, setvalid_index] = useState(true)
   const [result_info, setresult_info] = useState('')
 
 
@@ -20,7 +19,8 @@ function Results_page() {
     
 
   const clear = () => {
-    setexam()
+    setexam('Select Exam')
+    setyear('')
     setindexno('')
     setnic('')
     setshow(false)
@@ -50,8 +50,15 @@ function Results_page() {
     )
     console.log('succese');
     result = await res.json()
-    console.log(result['nic']);
-    
+     
+    if (result['message'] === 'No result found') {
+      setvalid_index(false)
+      setindexno('')
+      setnic('')
+    }else{
+      setshow(true)
+    }
+
     // {id: 1, nic: '200500201250', name: 'Prasannah', Results: {…}, indexno: '9204776'}
     info = { Indexno: result['indexno'],Name: result['name'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
     setresult_info(info)
@@ -59,9 +66,7 @@ function Results_page() {
     console.log(info.Exam);
     
     
-    if (result !== undefined) {
-      setshow(true)
-    }
+    
     
     } catch (error) {
       console.log(error);
@@ -78,6 +83,14 @@ function Results_page() {
     
   }
 
+  const setdisable = (elem)=>{
+    if (elem === '' | elem === null|elem === undefined |elem === 'Select Exam'){
+      return  true
+    } else {
+      return false
+    }
+  }
+
   return (
     <div>
       <div>
@@ -91,25 +104,26 @@ function Results_page() {
             
           })}
         </select>
-        <select value={year} onChange={(e) => setyear(e.target.value)} style={{ width: '40% ',maxWidth:'250px', padding: '10px', margin: '10px', borderRadius: '5px' }}>
+        <select value={year} disabled={setdisable(exam)} onChange={(e) => setyear(e.target.value)} style={{ width: '40% ',maxWidth:'250px', padding: '10px', margin: '10px', borderRadius: '5px' }}>
           <option defaultChecked>Select Year</option>
-          {exam!=null && data[exam].map((y)=>{
+          
+          {exam!=='Select Exam' & exam!==undefined && data[exam].map((y)=>{
             return(
               <option value={y} key={y}>{y}</option>
             )
           })}
         </select>
         <p style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <select value={idtype} onChange={(e) => setidtype(e.target.value)} style={{ width: 100, padding: '10px', margin: '10px', marginRight: -1, borderRadius: '5px' }}>
+          <select value={idtype} disabled={setdisable(year)} onChange={(e) => setidtype(e.target.value)} style={{ width: 100, padding: '10px', margin: '10px', marginRight: -1, borderRadius: '5px' }}>
             <option value='indexno'>Index</option>
             <option value="nic">NIC</option>
           </select>
 
           {idtype === 'indexno' ?
-            <input type='text' placeholder='Index No' value={indexno} onChange={(e) => { setindexno(e.target.value) }} style={{ flex: 1, width: '80%', borderRadius: '5px', maxWidth: '200px', padding: '10px', margin: '10px', marginLeft: 0 }} /> :
-            <input type='text' placeholder='NIC' value={nic} onChange={(e) => { setnic(e.target.value) }} style={{ flex: 1, width: '80%', padding: '5px', borderRadius: '5px', margin: '10px', maxWidth: '200px', marginLeft: 0 }} />}
-
+            <input type='text' disabled={setdisable(year)} placeholder='Index No' value={indexno} onChange={(e) => { setindexno(e.target.value) }} style={{ flex: 1, width: '80%', borderRadius: '5px', maxWidth: '200px', padding: '10px', margin: '10px', marginLeft: 0 }} /> :
+            <input type='text' disabled={setdisable(year)} placeholder='NIC' value={nic} onChange={(e) => { setnic(e.target.value) }} style={{ flex: 1, width: '80%', padding: '5px', borderRadius: '5px', margin: '10px', maxWidth: '200px', marginLeft: 0 }} />}
         </p>
+        {!valid_index && <p className='invalid_index_pop'>{idtype} not found</p>}
 
       </div>
       <div className="button-group">
@@ -131,9 +145,6 @@ function Results_page() {
   )
 }
 
-const details = {
-  padding: '10px',
-  width: '33%'
-}
+
 
 export default Results_page
