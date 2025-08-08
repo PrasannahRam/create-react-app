@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Results from './Results'
 import './Result.css'
 import data from './data.json' 
@@ -12,6 +12,22 @@ function Results_page() {
   const [show, setshow] = useState(false)
   const [valid_index, setvalid_index] = useState(true)
   const [result_info, setresult_info] = useState('')
+
+  const res_ref = useRef(null)
+
+  useEffect(() => {
+    res_ref.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [show]);
+
+//   useEffect(() => {
+//   if (show && res_ref.current) {
+//     window.scrollTo({
+//       top: res_ref.current.offsetTop - 50,  // scroll a bit above the result
+//       behavior: 'smooth',
+//     });
+//   }
+// }, [show]);
+
 
 
   // const subjects = subjects_data[exam]
@@ -135,8 +151,8 @@ function Results_page() {
 
 
       {show &&
-        <div style={{ justifyItems: 'center' }}>
-          <Results result={result_info}></Results>
+        <div style={{ justifyItems: 'center' }} id={'result'} ref={res_ref}>
+          <Results result={result_info} ></Results>
         </div>
 
       }
