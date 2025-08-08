@@ -82,7 +82,7 @@ function Results_page() {
     result = await res.json()
     
     
-    if (result['message'] === 'No result found') {
+    if (result['message'] === 'No result found' ) {
       setvalid_index(false)
       setindexno('')
       setnic('')
@@ -144,8 +144,10 @@ function Results_page() {
         {!valid_index && <p className='invalid_index_pop'>{idtype} not found</p>}
 
       </div>
+
+      
       <div className="button-group">
-        <button onClick={() => show_results()} className="btn submit-btn">Submit</button>
+        <button onClick={() => show_results()} disabled={setdisable(year)&&setdisable(exam)} className="btn submit-btn">Submit</button>
         <button onClick={clear} className="btn reset-btn">Reset</button>
       </div>
 
