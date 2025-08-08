@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Results from './Results'
 import './Result.css'
 import data from './data.json' 
@@ -16,7 +16,21 @@ function Results_page() {
 
   // const subjects = subjects_data[exam]
   // console.log(subjects);
-    
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setvalid_index(true)
+      }, 2000);
+      return () => clearTimeout(timer);
+    }, [valid_index]);
+
+  const setdisable = (elem)=>{
+    if (elem === '' | elem === null|elem === undefined |elem === 'Select Exam'){
+      return  true
+    } else {
+      return false
+    }
+  }
+
 
   const clear = () => {
     setexam('Select Exam')
@@ -50,7 +64,8 @@ function Results_page() {
     )
     console.log('succese');
     result = await res.json()
-     
+    
+    
     if (result['message'] === 'No result found') {
       setvalid_index(false)
       setindexno('')
@@ -73,22 +88,9 @@ function Results_page() {
       
     }
     
+
+
     // const info = { Indexno: indexno, Nic: nic, Exam: exam, Year: year, result: result }
-    // for testing
-    
-    // for testing
-
-    
-    
-    
-  }
-
-  const setdisable = (elem)=>{
-    if (elem === '' | elem === null|elem === undefined |elem === 'Select Exam'){
-      return  true
-    } else {
-      return false
-    }
   }
 
   return (
