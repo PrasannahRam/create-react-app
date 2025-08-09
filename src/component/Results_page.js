@@ -40,7 +40,7 @@ function Results_page() {
     }, [valid_index]);
 
   const setdisable = (elem)=>{
-    if (elem === '' | elem === null|elem === undefined |elem === 'Select Exam'){
+    if (elem === '' | elem === null|elem === undefined |elem === 'Select Exam'|elem === 'Select Year'){
       return  true
     } else {
       return false
@@ -82,7 +82,7 @@ function Results_page() {
     result = await res.json()
     
     
-    if (result['message'] === 'No result found' ) {
+    if (result['message'] === 'No result found' || result['error']) {
       setvalid_index(false)
       setindexno('')
       setnic('')
@@ -93,7 +93,7 @@ function Results_page() {
     // {id: 1, nic: '200500201250', name: 'Prasannah', Results: {…}, indexno: '9204776'}
     info = { Indexno: result['indexno'],Name: result['name'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
     setresult_info(info)
-    console.log(info);
+    console.log('result:',result);
     console.log(info.Exam);
     
     
@@ -101,6 +101,7 @@ function Results_page() {
     
     } catch (error) {
       console.log(error);
+      setshow(false)
       
     }
     
@@ -145,9 +146,11 @@ function Results_page() {
 
       </div>
 
+      {/* {console.log(exam,year)} */}
+      {/* {console.log(setdisable(year)&&setdisable(exam))} */}
       
       <div className="button-group">
-        <button onClick={() => show_results()} disabled={setdisable(year)&&setdisable(exam)} className="btn submit-btn">Submit</button>
+        <button onClick={() => show_results()} disabled={setdisable(year)||setdisable(exam)} className="btn submit-btn">Submit</button>
         <button onClick={clear} className="btn reset-btn">Reset</button>
       </div>
 
