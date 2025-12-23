@@ -9,7 +9,7 @@ function Results_page() {
   const [indexno, setindexno] = useState('')
   const [nic, setnic] = useState('')
   const [idtype, setidtype] = useState('indexno')
-  const [show, setshow] = useState(false)
+  const [show, setshow] = useState(true)
   const [valid_index, setvalid_index] = useState(true)
   const [result_info, setresult_info] = useState('')
 
@@ -105,7 +105,7 @@ function Results_page() {
       
     }
     
-
+    // setshow(true)
 
     // const info = { Indexno: indexno, Nic: nic, Exam: exam, Year: year, result: result }
   }

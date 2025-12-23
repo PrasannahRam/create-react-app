@@ -1,9 +1,21 @@
 import React from 'react'
+import logo from "./logo2.PNG";
+import "./Header.css";
 
-function Header() {
+const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <header className="header">
+      <img src={logo} alt="App Logo" className="header-logo" />
+      <div className='headerText'>
+      <h1 className="header-title">COMRADIC EMPOWERMENT UNION - PILOT EXAMS </h1>
+      <h1 className="header-title">தோழர் சேவை ஒன்றியம் - முன்னோடி பரீட்சைகள் </h1>
+      </div>
+      
+
+    </header>
+  );
+};
+
+
 
 export default Header
