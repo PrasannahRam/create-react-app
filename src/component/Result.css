@@ -1,24 +1,4 @@
-.results_body{
-    margin-bottom: 10px;
-    width: 90%;
-    flex:0;
-    background-color: white;
-    border-radius: 5mm;
-    max-width: 500px;
-}
-.result_contents {
-  text-align: left;              /* ✅ Left-align the text */
-  padding: 8px 12px;             /* Inner spacing */
-  margin: 6px 0;                 /* Vertical gap between lines */
-  font-size: 16px;               /* Clean readable text */
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;     /* Light gray background */
-  border-left: 4px solid #3498db; /* Accent bar on the left */
-  border-radius: 4px;
-  color: #333;
-  line-height: 1.5;
-  word-wrap: break-word;         /* Prevent long text from overflowing */
-}
+
 .result-table {
   width: 100%;
   max-width: 600px;
@@ -56,26 +36,7 @@
   }
 }
 
-.button-group {
-  display: flex;
-  justify-content: center;  /* ✅ Center horizontally */
-  gap: 10px;                /* Space between buttons */
-  margin-top: 30px;
-  flex-wrap: wrap;          /* Wrap on small screens */
-}
 
-.btn {
-  padding: 10px 24px;
-  font-size: 16px;
-  width: 20%;
-  max-width: 200px;
-  font-weight: 500;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: 'Segoe UI', sans-serif;
-}
 
 /* Submit button style */
 .submit-btn {
@@ -106,7 +67,9 @@
 
   .button-group {
     flex-direction: column;
-    align-items: center;
+    align-items: right;
+    padding-bottom: 10px;
+
   }
 }
 .invalid_index_pop{
@@ -139,4 +102,276 @@
     100%{
         opacity: 0;
     }
+}
+
+
+/* ------result page ------------------------------------------------------------------------------------------------------- */
+/* General resets */
+
+.form-container {
+  border: 1px solid rgba(107, 106, 106, 0.47);
+  margin: 20px ;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  padding-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* =========================
+   ROW LAYOUT
+========================= */
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: left;
+}
+
+/* =========================
+   SELECT & INPUTS
+========================= */
+.select-box {
+  width: 40%;
+  max-width: 250px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.id-type {
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  margin-right: -1px;
+  border-radius: 5px;
+}
+
+.input-box {
+  flex: 1;
+  width: 80%;
+  max-width: 200px;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+/* =========================
+   BUTTON GROUP
+=
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Error popup (invalid index / nic) */
+.invalid_index_pop {
+  color: #d32f2f;
+  background-color: #fdecea;
+  border: 1px solid #f5c6cb;
+  padding: 8px 12px;
+  margin: 0 10px 10px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+/* Button group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Submit button */
+.submit-btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  background-color: #1976d2;
+  color: white;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #125aa3;
+}
+
+.submit-btn:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+/* Reset button */
+.reset-btn {
+  padding:  10px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  background-color: #ff6b6b;
+  color: #333;
+  width: 17%;
+}
+
+.reset-btn:hover {
+  background-color: #bdbdbd;
+}
+
+/* Inputs & select focus effect */
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+}
+
+/* Smooth appearance for result section */
+#result {
+  margin-top: 20px;
+  animation: fadeSlide 0.4s ease-in-out;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+  .button-group {
+    display: grid;               /* 🔴 grid instead of flex */
+    grid-template-columns: 1fr 1fr; /* 🔴 always 2 columns */
+    gap: 2px;
+    width: 90%;
+    margin: 10px;
+  }
+
+  .btn {
+    width: 90%;                 /* 🔴 fill grid cell */
+    padding: 8px 0;
+    font-size: 14px;
+  }
+}
+
+
+/* --------------result table ------------------------------------------------------------------------------------------------------- */ 
+
+/* =========================
+   MAIN RESULTS LAYOUT
+========================= */
+.results_body {
+  margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5mm;
+    max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* left info | right table */
+  margin-top: 20px;
+  margin: auto;
+}
+
+/* =========================
+   LEFT INFO (LABEL : VALUE)
+========================= */
+
+.result_contents-div {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.result_contents {
+  display: grid;
+  grid-template-columns: 160px 10px 1fr; /* label | : | value */
+  align-items: center;
+  text-align: left;              /* ✅ Left-align the text */
+  padding: 8px 12px;             /* Inner spacing */
+  font-size: 16px;               /* Clean readable text */
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;     /* Light gray background */
+  border-radius: 4px;
+  color: #333;
+  margin:0;
+}
+.result_contents:nth-child(odd) {
+  background-color: #f9f9f9; /* light gray */
+}
+
+.result_contents:nth-child(even) {
+  background-color: #ffffff; /* white */
+}
+/* Make labels bold like image */
+.result_contents span:first-child,
+.result_contents::first-line {
+  font-weight: 600;
+}
+
+/* =========================
+   RESULT TABLE
+========================= */
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  max-width:  400px;
+  margin-left: 10px;
+}
+
+.result-table td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 6px 8px;
+}
+
+/* Subject column */
+.subject-name {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+/* Grade column */
+.subject-mark {
+  text-align: center;
+  font-weight: 600;
+}
+.subject-mark-head {
+  text-align: center;
+  font-weight: 700;
+  padding: 10px;
+  background-color: #e0e7ff;
+} 
+.subject-name-head {
+  font-weight: 700;
+  padding: 10px;
+  background-color: #e0e7ff;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .results_body {
+    width: 90%;
+    grid-template-columns: 1fr; /* stack on mobile */
+  }
+
+  .result_contents {
+    grid-template-columns: 120px 8px 1fr;
+    font-size: 14px;
+  }
 }

@@ -1,5 +1,5 @@
 .App {
-  background-color: #f5f7f8;
+  background-color: #ffffff;
   text-align: center;
 }
 
@@ -39,14 +39,18 @@
 }
 
 .App-body {
+   margin: 20px auto;   /* 👈 centers the box */
+   width: 90%;
+  max-width: 1100px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 10;
   flex:1;
-  background-color:#f3f3f9;
-  margin: 0 5%;
+  background-color:white;
+  /* margin: 0 5%; */
   border-radius: 10px;
   padding: 10px;
+  margin-top: 0;
 }
 .App-notice{
   background-color: yellow;

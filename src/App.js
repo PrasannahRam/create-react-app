@@ -14,7 +14,7 @@ function App() {
         <Header></Header>
 
 
-        <h2 style={{color : '#363638ff',padding:'10px', textAlign:'left', borderBottom:" 1px solid #c1c2c3ff"}}>View Examination Results </h2>
+        <h2 style={{color : '#363638ff',padding:'10px', textAlign:'left', borderBottom:" 1px solid #d4d5d5ff"}}>View Examination Results </h2>
 
         <div className='result_page'>
           <ResultsPage></ResultsPage>
