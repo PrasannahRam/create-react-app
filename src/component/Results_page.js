@@ -71,6 +71,9 @@ function Results_page() {
       setshow(true)
       return
     }
+    else{
+      setvalid_index(false)
+    }
     try {
       console.log('running');
       
