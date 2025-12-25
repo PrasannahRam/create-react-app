@@ -66,7 +66,7 @@ function Results_page() {
     }
     var result = {}
 
-    if (id === 9204776 || '200500201250'){
+    if (id == 9204776 ||id ===  '200500201250'){
       setresult_info({ Indexno: "9204776",Name: "Prasannah", Nic: "2005123456789", Exam: exam, Year: year, result:{'Mathematics':"A", 'Science':"A", 'English':"A", 'Tamil Language':"A", 'Religion':"A", 'History':"A", 'Bascket 1':"A", 'Bascket 2':"A", 'Bascket 3':"A"} })
       setshow(true)
       return
