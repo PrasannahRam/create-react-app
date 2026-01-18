@@ -311,6 +311,7 @@ select:focus {
   border-radius: 4px;
   color: #333;
   margin:0;
+  text-transform: uppercase;
 }
 .result_contents:nth-child(odd) {
   background-color: #f9f9f9; /* light gray */
@@ -345,6 +346,7 @@ select:focus {
 .subject-name {
   font-weight: 500;
   color: #1f2937;
+  text-transform: uppercase;
 }
 
 /* Grade column */
@@ -376,5 +378,6 @@ select:focus {
   .result_contents {
     grid-template-columns: 120px 8px 1fr;
     font-size: 14px;
+    
   }
 }

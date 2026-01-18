@@ -66,20 +66,20 @@ function Results_page() {
     }
     var result = {}
 
-    if (id == 9204776 ||id ===  '200500201250'){
-      setresult_info({ Indexno: "9204776",Name: "Prasannah", Nic: "2005123456789", Exam: exam, Year: year, result:{'Mathematics':"A", 'Science':"A", 'English':"A", 'Tamil Language':"A", 'Religion':"A", 'History':"A", 'Bascket 1':"A", 'Bascket 2':"A", 'Bascket 3':"A"} })
-      setshow(true)
-      return
-    }
-    else{
-      setvalid_index(false)
-    }
+    // if (id == 9204776 ||id ===  '200500201250'){
+    //   setresult_info({ Indexno: "9204776",Name: "Prasannah", Nic: "2005123456789", Exam: exam, Year: year, result:{'Mathematics':"A", 'Science':"A", 'English':"A", 'Tamil Language':"A", 'Religion':"A", 'History':"A", 'Bascket 1':"A", 'Bascket 2':"A", 'Bascket 3':"A"} })
+    //   setshow(true)
+    //   return
+    // }
+    // else{
+    //   setvalid_index(false)
+    // }
     try {
       console.log('running');
       
-      const res = await fetch("https://backend-ceu-results-production.up.railway.app/api/result",{
+      const res = await fetch("https://back-end-ceu-results-no20jc6bu-ramesh-prasannahs-projects.vercel.app/api/result",{
         method:'POST',
-        body:JSON.stringify({id:id,idtype:idtype,exam:exam,year:year}),
+        body:JSON.stringify({id:id,idtype:"index_no",exam:exam.replace(' ', '_').toUpperCase() ,year:year}),
         headers: {
         "Content-Type": "application/json"
       }
@@ -100,10 +100,10 @@ function Results_page() {
     }
 
     // {id: 1, nic: '200500201250', name: 'Prasannah', Results: {…}, indexno: '9204776'}
-    info = { Indexno: result['indexno'],Name: result['name'], Nic: result['nic'], Exam: exam, Year: year, result: result['Results'] }
+    info = { Index: result['index_no'],Name: result['student_name'],  Examination: exam, Year: year, result: result['results'] }
     setresult_info(info)
     console.log('result:',result);
-    console.log(info.Exam);
+    console.log(info.Examination);
     
     
     
@@ -137,7 +137,7 @@ function Results_page() {
           >
             <option defaultChecked>Select Exam</option>
             {Object.keys(data).map((e) => (
-              <option value={e} key={e}>{e}</option>
+              <option value={e} key={e}>{e.toUpperCase()}</option>
             ))}
           </select>
 
