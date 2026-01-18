@@ -77,7 +77,7 @@ function Results_page() {
     try {
       console.log('running');
       
-      const res = await fetch("https://back-end-ceu-results-no20jc6bu-ramesh-prasannahs-projects.vercel.app/api/result",{
+      const res = await fetch("https://back-end-ceu-results-pbm0rxg4v-ramesh-prasannahs-projects.vercel.app/api/result",{
         method:'POST',
         body:JSON.stringify({id:id,idtype:"index_no",exam:exam.replace(' ', '_').toUpperCase() ,year:year}),
         headers: {
