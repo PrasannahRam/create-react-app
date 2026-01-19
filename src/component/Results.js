@@ -2,6 +2,49 @@ import React from "react";
 import "./Result.css";
 // import subjects_data from "./subjects.json";
 function Results({ result, reset }) {
+//     result = {
+//     "id": 2,
+//     "index_no": "20250108",
+//     "student_name": "Lingeshwaran Jikan",
+//     "results": [
+//         {
+//             "marks": "A",
+//             "subject": "SAIVANERY"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "TAMIL LANGUAGE & LITT"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "ENGLISH LANGUAGE"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "MATHEMATICS"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "HISTORY"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "SCIENCE"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "ART"
+//         },
+//         {
+//             "marks": "A",
+//             "subject": "CIVIC EDUCATION"
+//         },
+//         {
+//             "marks": "8",
+//             "subject": "HEALTH & PHYSICAL EDUCAT."
+//         }
+//     ]
+// }
   //   result = {
   //     Index: "9204776",
   //     Name: "Prasannah",
@@ -65,7 +108,7 @@ function Results({ result, reset }) {
 
           {result.results.map((subject)=>{
             return(
-              <tr key={subject.name}>
+              <tr key={subject.subject}>
               <td>
                 <p className="subject-name">{subject.subject}</p>
               </td>
