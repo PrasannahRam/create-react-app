@@ -63,7 +63,7 @@ function Results({ result, reset }) {
             <td className="subject-mark-head">Results</td>
           </tr>
 
-          {result.result.map((subject)=>{
+          {result.results.map((subject)=>{
             return(
               <tr key={subject.name}>
               <td>
