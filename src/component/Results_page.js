@@ -79,7 +79,7 @@ function Results_page() {
       
       const res = await fetch("https://back-end-ceu-results.vercel.app/api/result",{
         method:'POST',
-        body:JSON.stringify({id:id,idtype:"index_no",exam:exam.replace(' ', '_').toUpperCase() ,year:year}),
+        body:JSON.stringify({id:id,idtype:"index_no",exam:exam.replace(/ /g, '_').toUpperCase() ,year:year}),
         headers: {
         "Content-Type": "application/json"
       }
