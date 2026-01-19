@@ -26,8 +26,10 @@ function Results({ result, reset }) {
             <td className="subject-mark-head">Results</td>
           </tr>
 
+                {console.log(result.result)}
           {result.result.map((subject)=>{
             return(
+                
               <tr key={subject.subject}>
               <td>
                 <p className="subject-name">{subject.subject}</p>
