@@ -2,86 +2,6 @@ import React from "react";
 import "./Result.css";
 // import subjects_data from "./subjects.json";
 function Results({ result, reset }) {
-//     result = {
-//     "id": 2,
-//     "index_no": "20250108",
-//     "student_name": "Lingeshwaran Jikan",
-//     "results": [
-//         {
-//             "marks": "A",
-//             "subject": "SAIVANERY"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "TAMIL LANGUAGE & LITT"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "ENGLISH LANGUAGE"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "MATHEMATICS"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "HISTORY"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "SCIENCE"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "ART"
-//         },
-//         {
-//             "marks": "A",
-//             "subject": "CIVIC EDUCATION"
-//         },
-//         {
-//             "marks": "8",
-//             "subject": "HEALTH & PHYSICAL EDUCAT."
-//         }
-//     ]
-// }
-  //   result = {
-  //     Index: "9204776",
-  //     Name: "Prasannah",
-  //     NIC: "2005123456789",
-  //     Examination: "Ol",
-  //     Year: "2025",
-  //     result: {
-  //       Mathematics: "A",
-  //       Science: "A",
-  //       English: "C",
-  //       "Tamil Language": "A",
-  //       Religion: "A",
-  //       History: "A",
-  //       "Bascket 1": "A",
-  //       "Bascket 2": "A",
-  //       "Bascket 3": "A",
-  //     },
-  //   };
-
-  const subjects = [
-    "SAIVANERY",
-    "TAMIL LANGUAGE & LITT",
-    "ENGLISH LANGUAGE",
-    "MATHEMATICS",
-    "HISTORY",
-    "SCIENCE",
-    "ART",
-    "DRAMA & THEATRE(TAMIL)",
-    "APPR.OF TAMIL LIT.TEXT",
-    "CIVIC EDUCATION",
-    "GEOGRAPHY",
-    "SECOND LANGUAGE(SINHALA)",
-    "AGRI.& FOOD TECHNOLOGY",
-    "HEALTH & PHYSICAL EDUCAT.",
-    "INFOR.&COMM. TECHNOLOGY",
-    "DESIGN &CONST. TECHNOLOGY",
-  ];
 
   const titles = ["Examination", "Year", "Index", "Name"];
 
@@ -116,22 +36,7 @@ function Results({ result, reset }) {
             </tr>
             )
           })}
-        {/* {subjects.map(subject => (
-  <tr key={subject}>
-    <td>
-      <p className="subject-name">{subject}</p>
-    </td>
-    <td className="subject-mark">{result.result[subject]}</td>
-  </tr>
-))} */}
-          {/* {Object.entries(result.result).map(([subject, mark]) => (
-            <tr key={subject}>
-              <td>
-                <p className="subject-name">{subject}</p>
-              </td>
-              <td className="subject-mark">{mark}</td>
-            </tr>
-          ))} */}
+        
         </tbody>
       </table>
 
